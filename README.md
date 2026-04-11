@@ -1,4 +1,4 @@
-# My Skills
+# My Agent Skills
 
 A collection of AI agent skills and coding conventions for building high-quality software across frontend, backend, and full-stack applications. This repository includes best practices for Clean Architecture principles, robust testing practices, and technology-specific conventions.
 
