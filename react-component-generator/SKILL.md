@@ -37,7 +37,7 @@ This skill creates **complete, production-ready file structures** including:
 
 ### 1. Components
 
-Generates shared/reusable components in `src/presentation/components/`
+Generates shared/reusable components in `src/components/`
 
 **File Structure:**
 
@@ -74,7 +74,7 @@ page-name/
 
 ### 3. Hooks
 
-Generates custom React hooks in `src/presentation/hooks/`
+Generates custom React hooks in `src/hooks/`
 
 **File Structure:**
 
@@ -199,7 +199,7 @@ export { ComponentName } from "./component-name";
 import { render, screen } from '@testing-library/react';
 import { ComponentName } from '../component-name';
 
-describe('presentation/components/category/component-name', () => {
+describe('components/category/component-name', () => {
   it('GIVEN ComponentName is rendered WHEN the component mounts THEN it should display correctly', () => {
     render(<ComponentName />);
 
