@@ -69,6 +69,26 @@ Comprehensive testing conventions for React components and TypeScript functions.
 - Test descriptions: GIVEN / WHEN / THEN pattern (uppercase keywords)
 - Implementation: `screen` queries, user-centric selectors, `userEvent` over `fireEvent`
 
+#### 📱 [unit-testing-react-native](.agents/skills/unit-testing-react-native/)
+
+**Strict unit testing conventions for React Native with Jest and React Testing Library**
+
+Comprehensive testing conventions tailored for React Native environments. Enforces consistent file naming, Gherkin-style test descriptions, and user-centric query patterns using `@testing-library/react-native`.
+
+**Use this skill when:**
+
+- Writing unit tests for React Native components
+- Writing unit tests for TypeScript functions and utilities in mobile projects
+- Refactoring existing React Native test suites
+- Setting up test structure in a React Native project
+
+**Key conventions:**
+
+- File naming: `.spec.tsx` for components, `.spec.ts` for functions within `__tests__` folders
+- Test structure: Single top-level `describe` block, no nesting
+- Test descriptions: GIVEN / WHEN / THEN pattern with UPPERCASE keywords
+- Implementation: Global `screen` object, user-centric queries, `fireEvent` for interactions
+
 ### Backend Skills
 
 _Coming soon: Skills for backend development, API design, database patterns, and more._
@@ -105,6 +125,7 @@ You can reference these skills in several ways:
 
 Follow the conventions in ../my-skills/.agents/skills/react-clean-architecture-structure/
 Follow the testing conventions in ../my-skills/.agents/skills/frontend-unit-testing/
+Follow the React Native testing conventions in ../my-skills/.agents/skills/unit-testing-react-native/
 Use ../my-skills/.agents/skills/react-component-generator/ to scaffold new React artifacts
 ```
 
@@ -125,11 +146,15 @@ my-skills/
 │   ├── frontend-unit-testing/
 │   │   ├── SKILL.md          # Testing standards overview
 │   │   ├── AGENTS.md         # Complete testing guide
-│   │   └── references/       # Individual testing rules (renamed from rules/)
+│   │   └── references/       # Individual testing rules
+│   ├── unit-testing-react-native/
+│   │   ├── SKILL.md          # React Native testing standards
+│   │   ├── AGENTS.md         # Complete guide for mobile testing
+│   │   └── references/       # Individual rules for React Native
 │   ├── react-clean-architecture-structure/
 │   │   ├── SKILL.md          # Skill overview and quick reference
 │   │   ├── AGENTS.md         # Full compiled documentation
-│   │   └── references/       # Individual rule definitions (renamed from rules/)
+│   │   └── references/       # Individual rule definitions
 │   └── react-component-generator/
 │       └── SKILL.md          # Component/page/hook generator
 ├── .github/skills/           # Symlink to .agents/skills/ (GitHub Copilot)
@@ -150,12 +175,12 @@ my-skills/
 - **Shared Components** (HIGH) - Reusable component libraries
 - **Infrastructure** (MEDIUM) - Gateway and external integrations
 
-### Frontend - Testing Skills
+### Frontend - Testing Skills (Web & Mobile)
 
 - **File Location & Naming** (CRITICAL) - Where tests live and how they're named
-- **Test Structure** (HIGH) - Organization of test suites
-- **Test Descriptions** (HIGH) - Consistent test naming patterns
-- **Implementation Patterns** (MEDIUM) - Best practices for writing tests
+- **Test Structure** (HIGH) - Organization of test suites (flat structure)
+- **Test Descriptions** (HIGH) - Consistent test naming patterns (Gherkin-style)
+- **Implementation Patterns** (MEDIUM) - Best practices for writing tests (user-centric)
 
 ### Backend & Other Skills
 
@@ -174,7 +199,7 @@ This repository emphasizes best practices across different domains. Below are th
 - **Controller Pattern**: Logic extracted from JSX components into dedicated controllers
 - **Colocated Tests**: Tests live next to the code they test
 
-#### Testing (Frontend)
+#### Testing (Frontend & Mobile)
 
 - **User-Centric**: Tests focus on user behavior, not implementation details
 - **Readable**: GIVEN/WHEN/THEN pattern makes test intent crystal clear
@@ -210,4 +235,4 @@ These are personal skills and conventions. Feel free to fork and adapt them to y
 
 ---
 
-_Last updated: April 11, 2026_
+_Last updated: April 25, 2026_
