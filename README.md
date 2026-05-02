@@ -6,9 +6,31 @@ A collection of AI agent skills and coding conventions for building high-quality
 
 This repository contains reusable skills for AI coding assistants (GitHub Copilot, Cursor, etc.) that enforce best practices and conventions across different technologies and domains.
 
+### Code Quality Skills
+
+#### 🧹 [clean-code-js-ts](clean-code-js-ts/)
+
+**Clean Code conventions for JavaScript and TypeScript**
+
+Strict guidance for writing, refactoring, and reviewing maintainable JavaScript and TypeScript code. This skill covers variables, functions, objects, classes, SOLID principles, asynchrony, error handling, and comments.
+
+**Use this skill when:**
+
+- Writing new JavaScript or TypeScript code
+- Refactoring existing JS/TS modules for readability and maintainability
+- Reviewing implementation quality and architectural integrity
+- Applying SOLID, clean function design, and error handling conventions
+
+**Key conventions:**
+
+- Meaningful, searchable names without unnecessary context
+- Functions with 2 or fewer arguments and a single responsibility
+- Composition over inheritance and SOLID design principles
+- Async/await patterns and explicit caught-error handling
+
 ### Frontend Skills
 
-#### ⚛️ [react-clean-architecture-structure](.agents/skills/react-clean-architecture-structure/)
+#### ⚛️ [react-clean-architecture-structure](react-clean-architecture-structure/)
 
 **Clean Architecture folder structure conventions for React applications**
 
@@ -28,7 +50,7 @@ Comprehensive folder structure and naming conventions that enforce Clean Archite
 - Page-level architecture patterns
 - Colocated components and tests
 
-#### 🔧 [react-component-generator](.agents/skills/react-component-generator/)
+#### 🔧 [react-component-generator](react-component-generator/)
 
 **Automated generator for React components, pages, and hooks**
 
@@ -49,7 +71,7 @@ Generate complete React artifacts with proper Clean Architecture file structure.
 - GIVEN/WHEN/THEN test structure
 - Controller pattern for logic separation
 
-#### 🧪 [frontend-unit-testing](.agents/skills/frontend-unit-testing/)
+#### 🧪 [frontend-unit-testing](frontend-unit-testing/)
 
 **Frontend unit testing standards using Jest and React Testing Library**
 
@@ -69,7 +91,7 @@ Comprehensive testing conventions for React components and TypeScript functions.
 - Test descriptions: GIVEN / WHEN / THEN pattern (uppercase keywords)
 - Implementation: `screen` queries, user-centric selectors, `userEvent` over `fireEvent`
 
-#### 📱 [unit-testing-react-native](.agents/skills/unit-testing-react-native/)
+#### 📱 [unit-testing-react-native](unit-testing-react-native/)
 
 **Strict unit testing conventions for React Native with Jest and React Testing Library**
 
@@ -99,22 +121,7 @@ _Coming soon: Additional skills for DevOps, testing strategies, architecture pat
 
 ## 🚀 How to Use
 
-This repository is structured to work with **any AI coding assistant** that supports custom skills:
-
-### Multi-Agent Compatibility
-
-The skills are organized with symlinks to support multiple agent systems:
-
-- **`.agents/skills/`** - Canonical location (works with most generic agents)
-- **`.github/skills/`** - GitHub Copilot integration ↗️ symlink to `.agents/skills/`
-- **`.claude/skills/`** - Claude/Anthropic integration ↗️ symlink to `.agents/skills/`
-
-This means the repository works seamlessly with:
-
-- ✅ **GitHub Copilot** - Reads from `.github/skills/`
-- ✅ **Cursor** - Supports `.agents/skills/` and `.github/skills/`
-- ✅ **Claude Projects** - Reads from `.claude/skills/`
-- ✅ **Any other agent** - Falls back to `.agents/skills/`
+This repository is structured to work with **any AI coding assistant** that supports custom skills. Each skill lives in its own top-level directory with a `SKILL.md` entrypoint and, where needed, supporting `AGENTS.md` and `rules/` files.
 
 ### In Your Project
 
@@ -123,10 +130,11 @@ You can reference these skills in several ways:
 ```markdown
 # In your .instructions.md or similar configuration
 
-Follow the conventions in ../my-skills/.agents/skills/react-clean-architecture-structure/
-Follow the testing conventions in ../my-skills/.agents/skills/frontend-unit-testing/
-Follow the React Native testing conventions in ../my-skills/.agents/skills/unit-testing-react-native/
-Use ../my-skills/.agents/skills/react-component-generator/ to scaffold new React artifacts
+Follow clean code conventions in ../my-agent-skills/clean-code-js-ts/
+Follow React architecture conventions in ../my-agent-skills/react-clean-architecture-structure/
+Follow frontend testing conventions in ../my-agent-skills/frontend-unit-testing/
+Follow React Native testing conventions in ../my-agent-skills/unit-testing-react-native/
+Use ../my-agent-skills/react-component-generator/ to scaffold new React artifacts
 ```
 
 Or directly reference rule files:
@@ -134,37 +142,44 @@ Or directly reference rule files:
 ```markdown
 When creating components, follow:
 
-- ../my-skills/.agents/skills/react-clean-architecture-structure/references/component-file-set.md
-- ../my-skills/.agents/skills/react-clean-architecture-structure/references/page-file-set.md
+- ../my-agent-skills/react-clean-architecture-structure/rules/component-file-set.md
+- ../my-agent-skills/react-clean-architecture-structure/rules/page-file-set.md
 ```
 
 ## 📂 Repository Structure
 
 ```
-my-skills/
-├── .agents/skills/           # Canonical skills location
-│   ├── frontend-unit-testing/
-│   │   ├── SKILL.md          # Testing standards overview
-│   │   ├── AGENTS.md         # Complete testing guide
-│   │   └── references/       # Individual testing rules
-│   ├── unit-testing-react-native/
-│   │   ├── SKILL.md          # React Native testing standards
-│   │   ├── AGENTS.md         # Complete guide for mobile testing
-│   │   └── references/       # Individual rules for React Native
-│   ├── react-clean-architecture-structure/
-│   │   ├── SKILL.md          # Skill overview and quick reference
-│   │   ├── AGENTS.md         # Full compiled documentation
-│   │   └── references/       # Individual rule definitions
-│   └── react-component-generator/
-│       └── SKILL.md          # Component/page/hook generator
-├── .github/skills/           # Symlink to .agents/skills/ (GitHub Copilot)
-├── .claude/skills/           # Symlink to .agents/skills/ (Claude)
+my-agent-skills/
+├── clean-code-js-ts/
+│   ├── SKILL.md              # Clean Code JS/TS overview
+│   └── AGENTS.md             # Complete clean code rules and examples
+├── frontend-unit-testing/
+│   ├── SKILL.md              # Testing standards overview
+│   ├── AGENTS.md             # Complete testing guide
+│   └── rules/                # Individual testing rules
+├── unit-testing-react-native/
+│   ├── SKILL.md              # React Native testing standards
+│   ├── AGENTS.md             # Complete guide for mobile testing
+│   └── rules/                # Individual rules for React Native
+├── react-clean-architecture-structure/
+│   ├── SKILL.md              # Skill overview and quick reference
+│   ├── AGENTS.md             # Full compiled documentation
+│   └── rules/                # Individual rule definitions
+├── react-component-generator/
+│   └── SKILL.md              # Component/page/hook generator
 └── README.md                 # This file
 ```
 
-**Note:** The `.github/skills/` and `.claude/skills/` directories are symbolic links to `.agents/skills/`, ensuring all agents can access the same skills without duplication.
-
 ## 🎯 Rule Categories
+
+### Code Quality - Clean Code JS/TS
+
+- **Variables** (HIGH) - Meaningful, pronounceable, searchable names
+- **Functions** (CRITICAL) - Low argument count, single responsibility, clear names, no flag parameters
+- **Objects and Classes** (HIGH) - ES6 classes, method chaining, composition over inheritance
+- **SOLID Principles** (CRITICAL) - SRP, OCP, LSP, ISP, and DIP
+- **Concurrency & Asynchrony** (HIGH) - Promise and async/await conventions
+- **Error Handling & Comments** (MEDIUM) - Explicit caught-error handling and meaningful comments only
 
 ### Frontend - Clean Architecture Skills (React)
 
@@ -191,6 +206,14 @@ _Coming soon: Rule categories for backend development, DevOps, and other domains
 This repository emphasizes best practices across different domains. Below are the core principles for the current skills:
 
 ### Frontend Development
+
+#### Clean Code (JS/TS)
+
+- **Readable Names**: Variables and functions clearly describe intent
+- **Focused Functions**: Functions do one thing and keep arguments minimal
+- **SOLID Design**: Modules and abstractions remain extensible and substitutable
+- **Explicit Errors**: Caught errors are handled, logged, or reported intentionally
+- **Minimal Comments**: Comments explain business complexity, not obvious code
 
 #### Clean Architecture (React)
 
@@ -235,4 +258,4 @@ These are personal skills and conventions. Feel free to fork and adapt them to y
 
 ---
 
-_Last updated: April 25, 2026_
+_Last updated: May 1, 2026_
